@@ -1,0 +1,32 @@
+Name: cockpit-domino-control
+Version: @VERSION@
+Release: 1%{?dist}
+Summary: Cockpit Domino Control Module
+License: LGPLv2+
+
+Source: cockpit-domino-control-%{version}.tar.gz
+BuildArch: noarch
+BuildRequires:  libappstream-glib
+
+Requires: cockpit-system
+
+%define debug_package %{nil}
+
+%description
+Domino Control Module for Cockpit
+
+%prep
+%setup -n cockpit-starter-kit
+
+%install
+%make_install
+appstream-util validate-relax --nonet %{buildroot}/%{_datadir}/metainfo/*
+
+# drop source maps, they are large and just for debugging
+find %{buildroot}%{_datadir}/cockpit/ -name '*.map' | xargs rm --verbose
+
+%files
+%{_datadir}/cockpit/*
+%{_datadir}/metainfo/*
+
+%changelog
