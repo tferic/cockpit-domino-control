@@ -41,7 +41,7 @@
     "sizzle": "^2.3.3",
     "stdio": "^0.2.7",
     "webpack": "^4.37.0",
-    "webpack-cli": "^3.1.0"
+    "webpack-cli": "^3.3.12"
   },
   "dependencies": {
     "core-js": "^3.1.4",
